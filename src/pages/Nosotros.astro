@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ParallaxSection from '../components/ParallaxSection.astro'
+import Cards from '../components/Cards.astro'
+import 'aos/dist/aos.css'
+import Clientes from '../components/Clientes.astro'
+import Politicas from '../components/Politicas.astro'
+import ValoresSwiper from '../components/Valores-Swiper.astro'
+// Define el contenido que deseas mostrar
+const parallaxContent = {
+  image: 'https://i.imgur.com/Dpz1ALJ.jpg',
+  text: {
+    title: 'Construimos oportunidades para todos de manera sostenible'
+  },
+  breadcrumb: [
+    { href: '/', label: 'Inicio' },
+    { href: '/Nosotros', label: 'Nosotros' }
+  ]
+}
+---
+
+<script>
+  import AOS from 'aos'
+  AOS.init()
+</script>
+
+<Layout title='Nosotros: MB'>
+  <div class='h-[90vh] overflow-hidden'>
+    <ParallaxSection
+      image={parallaxContent.image}
+      text={parallaxContent.text}
+      breadcrumb={parallaxContent.breadcrumb}
+    />
+  </div>
+  <main>
+    <div class='py-16 max-w-screen-xl mx-auto'>
+      <div class='w-[78%] mx-auto px-6 text-gray-600 md:px-12 xl:px-6'>
+        <div class='space-y-8 lg:space-y-0 lg:flex lg:items-center md:gap-6 lg:gap-12'>
+          <!-- Imagen -->
+          <div class='w-full lg:w-5/12'>
+            <img
+              src='https://i.imgur.com/Jha1yg4.jpg'
+              alt='image'
+              loading='lazy'
+              class='w-full h-auto object-cover rounded-lg shadow-md'
+            />
+          </div>
+          <!-- Texto -->
+          <div class='w-full lg:w-7/12 text-gray-900'>
+            <h2 class='text-3xl font-bold md:text-4xl'>Sobre Nosotros</h2>
+            <p class='mt-6 text-sm sm:text-lg text-justify'>
+              MB SERVICIOS GENERALES E.I.R.L. es una empresa que se caracteriza por tener un equipo
+              de profesionales altamente comprometido con nuestros clientes basado en la confianza y
+              seriedad para el desarrollo de cada uno de nuestros servicios.
+            </p>
+            <p class='mt-4 text-sm sm:text-lg text-justify'>
+              Tenemos la capacidad y experiencia en la ejecución de servicios de construcción,
+              mantenimiento y reparación mecánica aplicando soldaduras especiales.
+            </p>
+            <p class='mt-4 text-sm sm:text-lg text-justify'>
+              Realizamos modificaciones y restauraciones para tanques, estructuras sujetas a
+              esfuerzos críticos, grúas puente, grúas móviles, elementos de izaje, equipos y
+              sistemas de presión. Contamos con la acreditación de SGS en Servicio de mantenimiento
+              mecánico en minería, calificación A.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Essence -->
+
+    <div class='essence py-10 bg-cover bg-center'>
+      <div class='items-center py-10 max-w-screen-xl m-auto rounded-lg'>
+        <!-- Title -->
+        <div class='m-auto w-[78%] flex mb-8'>
+          <div class='mr-5' data-aos='fade-right' data-aos-duration='1000'>
+            <img src='/images/flechanext.svg' class='w-[14px] h-9 filter invert' />
+          </div>
+          <div data-aos='fade-right' data-aos-duration='1000'>
+            <h3 class='text-2xl sm:text-3xl font-bold text-white border-b-2 border-white'>
+              Nuestra Esencia Corporativa
+            </h3>
+          </div>
+        </div>
+        <!-- Cards-box -->
+        <div
+          class='w-fit m-auto justify-center items-stretch max-xl:space-y-4 xl:space-x-6 xl:flex mx-12 sm:mx-20 md:mx-28 lg:mx-36 xl:mx-auto'
+          data-aos='fade-up'
+          data-aos-duration='1000'>
+          <Cards
+            nombre='Misión'
+            parrafo='Ser una empresa altamente reconocida en el sur del Perú que contribuye al desarrollo del sector Minero energético, pesquero e industrial, ofreciendo un mejor servicio, comprometidos con la seguridad, salud ocupacional, preservación del medio ambiente y la calidad de nuestros servicios.'
+            image='/images/mision.webp'
+          />
+          <Cards
+            nombre='Visión'
+            parrafo='Brindar servicios de alta calidad teniendo en cuenta las normas establecidas, aplicando innovación y creatividad en cada uno de los proyectos ejecutados, trabajando arduamente para cumplir con las expectativas de nuestros clientes brindando soluciones confiables, económicas y eficientes.'
+            image='/images/Vision.webp'
+          />
+        </div>
+      </div>
+    </div>
+    <ValoresSwiper />
+    <!-- Policies -->
+    <Politicas />
+
+    <!-- Datos -->
+    <div class='max-w-screen-xl m-auto items-center'>
+      <div class='flex flex-wrap items-center m-auto justify-between w-[78%]'>
+        <!-- Certificates -->
+        <div class='items-center py-10 w-full xl:w-[480px]'>
+          <!-- Title -->
+          <div class='m-auto w-auto flex mb-8'>
+            <div class='mr-5' data-aos='fade-right' data-aos-duration='1000'>
+              <img src='/images/flechanext.svg' class='w-[14px] h-9' />
+            </div>
+            <div data-aos='fade-right' data-aos-duration='1000'>
+              <h3 class='text-2xl sm:text-3xl font-bold text-gray-900 border-b-2 border-[#111827]'>
+                Certificados
+              </h3>
+            </div>
+          </div>
+          <!-- --- -->
+          <div
+            class='grid-container w-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 justify-center items-center mx-auto'
+            data-aos='fade'
+            data-aos-duration='700'>
+            <button onclick='my_modal_2.showModal()'>
+              <div class='certificado-card'>
+                <img class='w-[90%]' src='/images/SGS.svg' alt='sgs' />
+              </div>
+            </button>
+            <dialog id='my_modal_2' class='modal'>
+              <div class='items-center'>
+                <a
+                  href='https://drive.google.com/file/d/1jGY3eZXAjrfgLNxmBo7wROXRto4fipop/view?usp=drive_link'
+                  target='_blank'>
+                  <div class='modal-box w-auto p-2'>
+                    <img src='https://i.imgur.com/oCvf48f.jpg' class='w-[380px]' />
+                  </div>
+                </a>
+                <div class='modal-action mx-auto justify-center'>
+                  <form method='dialog'>
+                    <button class='btn'>Cerrar</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+
+            <button onclick='my_modal_1.showModal()'>
+              <div class='certificado-card'>
+                <div class='w-[90%]'>
+                  <img class='m-auto' src='/images/Hodelpe.png' alt='' />
+                </div>
+              </div>
+            </button>
+            <dialog id='my_modal_1' class='modal'>
+              <div class='items-center'>
+                <a
+                  href='https://drive.google.com/file/d/1FjtrnZ92yZldQZz5Phz1SZ4BKSXt4tD7/view?usp=drive_link'
+                  target='_blank'>
+                  <div class='modal-box w-auto p-2'>
+                    <img src='https://i.imgur.com/5SrBsj1.jpg' class='w-[380px]' />
+                  </div>
+                </a>
+                <div class='modal-action mx-auto justify-center'>
+                  <form method='dialog'>
+                    <button class='btn'>Cerrar</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </div>
+        </div>
+        <!-- Line Separator -->
+        <div class='hidden xl:block w-[2px] h-[80px] bg-gray-300 mt-[70px] mx-0'></div>
+        <!-- Diplomas -->
+        <div class='items-center py-10 w-full xl:w-[480px]'>
+          <!--Title -->
+          <div class='m-auto w-auto flex mb-8' data-aos='fade' data-aos-duration='700'>
+            <div class='mr-5' data-aos='fade-right' data-aos-duration='1000'>
+              <img src='/images/flechanext.svg' class='w-[14px] h-9' />
+            </div>
+            <div>
+              <h3 class='text-2xl sm:text-3xl font-bold text-gray-900 border-b-2 border-[#111827]'>
+                Nuestros Diplomas
+              </h3>
+            </div>
+          </div>
+          <!-- Grid_Clientes -->
+          <div
+            class='grid-container w-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 justify-center items-center mx-auto'
+            data-aos='fade'
+            data-aos-duration='700'>
+            <a
+              href='https://drive.google.com/file/d/1CaZnBF_QRg4nuhpu0iwOgf_38RKso6-G/view?usp=drive_link'
+              target='_blank'>
+              <div class='client-card'>
+                <img src='/images/MoqueguaEmerge.png' alt='' />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Clientes />
+  </main>
+  <!-- Otros contenidos de la página -->
+
+  <style>
+    /* borre el main porque afeccaba a todo y ponia las fuentes en 20px, ademas de pesos en la fuente y colores y no dejaba estilar con tailwind los componentes te arriba */
+
+    main {
+      margin: auto;
+      width: 100%;
+      max-width: calc(100%);
+      line-height: 1.6;
+    }
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    .content {
+      display: none;
+    }
+
+    input:checked ~ .content {
+      display: block;
+    }
+
+    input:checked ~ .toggle-label:first-of-type {
+      display: none;
+    }
+
+    .toggle-label {
+      display: inline-block;
+      cursor: pointer;
+      @apply hover:scale-105;
+    }
+
+    .bg-gradient-to-b {
+      background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+    }
+    .certificado-card {
+      @apply flex justify-center items-center p-4  rounded-lg shadow hover:shadow-xl transition-shadow duration-300 ease-in-out h-[80px] cursor-pointer;
+      background-color: rgba(221, 221, 221, 0.294);
+    }
+
+    .certificado-card img {
+      @apply max-w-full h-11;
+    }
+    .essence {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('https://i.imgur.com/ufclkAP.jpg');
+      background-attachment: fixed;
+    }
+    .client-card {
+      @apply flex justify-center items-center p-4  rounded-lg shadow hover:shadow-xl transition-shadow duration-300 ease-in-out h-[80px] cursor-pointer;
+      background-color: #f4f4f5ef;
+    }
+
+    .client-card img {
+      @apply max-w-full h-11;
+    }
+  </style>
+</Layout>

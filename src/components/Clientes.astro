@@ -1,0 +1,41 @@
+<div class='items-center py-10 bg-white max-w-screen-xl m-auto'>
+  <!--Title -->
+  <div class='m-auto w-[90%] md:w-[78%] flex mb-8' data-aos='fade' data-aos-duration='700'>
+    <div class='mr-2 sm:mr-5' data-aos='fade-right' data-aos-duration='1000'>
+      <img src='/images/flechanext.svg' class='w-[14px] h-9' />
+    </div>
+    <div>
+      <h3 class='text-2xl sm:text-3xl font-bold text-gray-900 border-b-2 border-[#111827]'>
+        Nuestros Clientes
+      </h3>
+    </div>
+  </div>
+  <!-- Grid_Clientes -->
+  <div
+    class='grid-container w-[80%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 justify-center items-center mx-auto'
+    data-aos='fade'
+    data-aos-duration='700'>
+    <div class='client-card'>
+      <img src='/images/engie.svg' alt='Engie' />
+    </div>
+    <div class='client-card'>
+      <img src='/images/scclogo.svg' alt='Souther Copper' />
+    </div>
+    <div class='client-card'>
+      <img src='/images/Tramarsa.webp' alt='Tramarsa' />
+    </div>
+    <div class='client-card'>
+      <img src='/images/FHingenieros.png' alt='FHIngeniero' />
+    </div>
+  </div>
+</div>
+<style>
+  .client-card {
+    @apply flex justify-center items-center p-4  rounded-lg shadow hover:shadow-xl transition-shadow duration-300 ease-in-out h-[80px] cursor-pointer;
+    background-color: #f4f4f5ef;
+  }
+
+  .client-card img {
+    @apply max-w-full h-11;
+  }
+</style>

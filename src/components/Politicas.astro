@@ -1,0 +1,178 @@
+<div class='bg-gradient-to-b from-gray-200 to-white'>
+  <div class='max-w-screen-xl mx-auto pt-12'>
+    <!-- Title -->
+    <div class='flex w-[78%] mx-auto mb-8'>
+      <div class='mr-5' data-aos='fade-right' data-aos-duration='1000'>
+        <img src='/images/flechanext.svg' class='w-[14px] h-9' />
+      </div>
+      <div data-aos='fade-right' data-aos-duration='1000'>
+        <h3 class='text-2xl sm:text-3xl font-bold text-gray-900 border-b-2 border-[#111827]'>
+          Nuestras Politicas Empresariales
+        </h3>
+      </div>
+    </div>
+
+    <!-- Policies -->
+    <div
+      class='grid w-[80%] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto bg-cover border-b-2 border-gray-300 pb-7'
+      data-aos='fade'
+      data-aos-duration='700'>
+      <!-- 1st Policy -->
+      <div class='policy-container'>
+        <button onclick='my_modal_3.showModal()'>
+          <div class='policy-circle'>
+            <div class='policy-bg' style='background-image: url(https://i.imgur.com/O5wwe2X.jpg);'>
+            </div>
+            <span class='policy-text'>Política de<br />Calidad</span>
+          </div>
+        </button>
+        <dialog id='my_modal_3' class='modal'>
+          <div class='items-center'>
+            <a
+              href='https://drive.google.com/file/d/1bZVgSto_NCzgBIDUWhyLTcIktWcUjGDf/view?usp=drive_link'
+              target='_blank'>
+              <div class='modal-box w-auto p-2'>
+                <img src='https://i.imgur.com/3F1qnuD.jpg' class='w-[380px]' />
+              </div>
+            </a>
+            <div class='modal-action mx-auto justify-center'>
+              <form method='dialog'>
+                <button class='btn'>Cerrar</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </div>
+      <!-- 2nd Policy -->
+      <div class='policy-container'>
+        <button onclick='my_modal_4.showModal()'>
+          <div class='policy-circle'>
+            <div class='policy-bg' style='background-image: url(https://i.imgur.com/AiFqoAx.jpg);'>
+            </div>
+            <span class='policy-text'>Política<br />Ambiental</span>
+          </div>
+        </button>
+        <dialog id='my_modal_4' class='modal'>
+          <div class='items-center'>
+            <a
+              href='https://drive.google.com/file/d/1RXZHltuVDvRm9A3_XfEU9Ly3kEEPNcbj/view?usp=drive_link'
+              target='_blank'>
+              <div class='modal-box w-auto p-2'>
+                <img src='https://i.imgur.com/Y9jCCPb.jpg' class='w-[380px]' />
+              </div>
+            </a>
+            <div class='modal-action mx-auto justify-center'>
+              <form method='dialog'>
+                <button class='btn'>Cerrar</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </div>
+      <!-- 3rd Policy -->
+      <div class='policy-container'>
+        <button onclick='my_modal_5.showModal()'>
+          <div class='policy-circle'>
+            <div class='policy-bg' style='background-image: url(https://i.imgur.com/ohOBkjT.jpg);'>
+            </div>
+            <span class='policy-text'>Política<br />Social</span>
+          </div>
+        </button>
+        <dialog id='my_modal_5' class='modal'>
+          <div class='items-center'>
+            <a
+              href='https://drive.google.com/file/d/1CsQ7ByaN2NHjaOHd-1jlgCLs4HcJeuMM/view?usp=drive_link'
+              target='_blank'>
+              <div class='modal-box w-auto p-2'>
+                <img src='https://i.imgur.com/NoeZmlu.jpg' class='w-[380px]' />
+              </div>
+            </a>
+            <div class='modal-action mx-auto justify-center'>
+              <form method='dialog'>
+                <button class='btn'>Cerrar</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .policy-container {
+    @apply flex justify-center items-center text-center;
+  }
+
+  .policy-circle {
+    width: 12rem; /* Ajusta el tamaño según sea necesario */
+    height: 12rem; /* Ajusta el tamaño según sea necesario */
+    border-radius: 50%;
+    border: 4px solid rgba(65, 65, 65); /* Borde exterior */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+    @apply shadow-lg shadow-gray-400;
+  }
+
+  .policy-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.3s ease;
+  }
+
+  .policy-circle:hover .policy-bg {
+    filter: brightness(0.7);
+  }
+
+  .policy-circle::after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border: 3px solid rgb(65, 65, 65); /* Segundo borde */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .policy-circle:hover {
+    border-color: rgb(255, 255, 255);
+  }
+
+  .policy-circle:hover::after {
+    border-color: rgb(255, 255, 255);
+  }
+
+  .policy-text {
+    @apply text-2xl text-white   z-50 font-semibold;
+  }
+
+  @media (min-width: 640px) {
+    .policy-circle {
+      width: 14rem;
+      height: 14rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .policy-circle {
+      width: 17rem;
+      height: 17rem;
+    }
+  }
+</style>

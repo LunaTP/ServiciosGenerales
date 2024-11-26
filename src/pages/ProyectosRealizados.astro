@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Proyectos from '../components/Proyectos.astro'
+import ParallaxSection from '../components/ParallaxSection.astro'
+
+const parallaxContent = {
+  image: 'https://i.imgur.com/aCV6gE5.jpg',
+  text: {
+    title: 'Nuestros Servicios Realizados'
+  },
+  breadcrumb: [
+    { href: '/', label: 'Inicio' },
+    { href: '/ProyectosRealizados', label: 'ProyectosRealizados' }
+  ]
+}
+---
+
+<script>
+  import AOS from 'aos'
+  AOS.init()
+</script>
+
+<Layout title='Servicios Realizados: MB'>
+  <div class='h-[95vh] overflow-hidden'>
+    <ParallaxSection
+      image={parallaxContent.image}
+      text={parallaxContent.text}
+      breadcrumb={parallaxContent.breadcrumb}
+    />
+  </div>
+  <main class='items-center py-10 max-w-screen-xl m-auto w-auto'>
+    <div class='flex w-[78%] mx-auto mb-8'>
+      <div class='mr-5' data-aos='fade-right' data-aos-duration='1000'>
+        <img src='/images/flechanext.svg' class='w-[14px] h-9' />
+      </div>
+      <div data-aos='fade-right' data-aos-duration='1000'>
+        <h3 class='text-2xl sm:text-3xl font-bold text-gray-900 md:border-b-2 border-[#111827]'>
+          Nuestros Proyectos Realizados
+        </h3>
+      </div>
+    </div>
+    <div class='w-[80%] mx-auto'>
+      <Proyectos />
+    </div>
+  </main>
+</Layout>

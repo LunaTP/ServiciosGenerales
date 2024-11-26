@@ -1,0 +1,126 @@
+---
+const { image, text, breadcrumb } = Astro.props
+---
+
+<section class='relative w-full h-screen flex overflow-hidden pl-[5%] sm:pl-[10%]'>
+  <!-- Parallax Image -->
+  <div class='absolute inset-0'>
+    <div
+      class='parallax-image bg-cover bg-center w-full h-full'
+      style={`background-image: url(${image});`}>
+    </div>
+    <!-- Overlay -->
+    <div class='absolute inset-0 bg-black opacity-30'></div>
+  </div>
+
+  <!-- Breadcrumb -->
+  {
+    breadcrumb && (
+      <nav aria-label='Breadcrumb' class='relative z-[1] w-full mt-4 parallax-text '>
+        <ol class='flex items-center gap-1 text-2xl text-gray-100 rounded'>
+          {breadcrumb.map((item: any, index: any) => (
+            <>
+              <li key={index}>
+                <a href={item.href} class='block transition hover:text-gray-300'>
+                  {item.label}
+                </a>
+              </li>
+              {index < breadcrumb.length - 1 && (
+                <li class='rtl:rotate-180'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    class='h-8 w-8'
+                    viewBox='0 0 20 20'
+                    fill='currentColor'>
+                    <path
+                      fill-rule='evenodd'
+                      d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
+                      clip-rule='evenodd'
+                    />
+                  </svg>
+                </li>
+              )}
+            </>
+          ))}
+        </ol>
+      </nav>
+    )
+  }
+
+  <!-- Texto con animación al hacer scroll -->
+  <div class='relative z-[1] max-w-xl mt-20 text-left'>
+    <h2 class='text-6xl font-semibold mb-4 text-white parallax-text leading-tight'>
+      {text.title}
+    </h2>
+    <p class='text-lg text-white parallax-text'>
+      {text.description}
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Parallax effect */
+  .parallax-image {
+    background-attachment: fixed;
+  }
+
+  /* Estilo para el texto */
+  .parallax-text {
+    position: relative;
+    transform: translateY(0);
+    transition: transform 0.2s ease-out;
+  }
+
+  /* Align the section content to the left */
+  section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    justify-content: flex-start; /* Cambiado a flex-start para alinear a la izquierda */
+  }
+
+  /* Ajustes de tipografía en dispositivos móviles */
+  @media (max-width: 640px) {
+    .parallax-image {
+      background-attachment: scroll; /* Desactivar parallax en móviles para mejor rendimiento */
+      background-position: center center; /* Centrar la imagen en móviles */
+      background-size: cover; /* Asegurar que la imagen cubra toda la pantalla */
+    }
+    .parallax-text {
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 3rem; /* Reducir el tamaño de fuente para dispositivos móviles */
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent);
+    z-index: 1;
+  }
+</style>
+
+<script>
+  // Animation logic for the text
+  document.addEventListener('scroll', function () {
+    const scrolled = window.scrollY
+    const parallaxTextElements = document.querySelectorAll('.parallax-text')
+
+    parallaxTextElements.forEach((element) => {
+      const speed = 0.2
+      const offset = scrolled * speed
+      element.style.transform = `translateY(${offset}px)`
+    })
+  })
+</script>

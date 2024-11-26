@@ -1,0 +1,33 @@
+---
+interface Props {
+  tipo: string
+  nombre: string
+  imgSrc: string
+}
+
+const { tipo, nombre, imgSrc } = Astro.props
+---
+
+<div
+  class='card_swipper flex flex-col md:flex-row h-auto md:h-96 rounded-2xl overflow-hidden bg-gradient-to-t from-gray-600 to-gray-900
+  hover:from-[#666779] hover:to-[#1c1d35]'>
+  <article class='p-6 flex-1 text-left'>
+    <div>
+      <p class='text-white text-xl sm:text-2xl'>{tipo}</p>
+      <h3 class='text-2xl sm:text-3xl font-semibold text-white'>{nombre}</h3>
+    </div>
+  </article>
+  <figure class='flex-1'>
+    <img src={imgSrc} alt={nombre} class='w-full h-48 md:h-96 object-cover max-w-full max-h-full' />
+  </figure>
+</div>
+
+<style>
+  .card_swipper {
+    position: relative;
+    transition-duration: 0.3s;
+  }
+  .card_swipper:hover {
+    box-shadow: 5px 5px 25px 0px;
+  }
+</style>

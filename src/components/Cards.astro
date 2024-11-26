@@ -1,0 +1,29 @@
+---
+interface Props {
+  nombre: string
+  parrafo: string
+  image: string
+}
+
+const { nombre, parrafo, image } = Astro.props
+---
+
+<div
+  class='cursor-grab w-auto xl:w-[450px] p-6 xl:mx-4 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:border-gray-900'>
+  <!-- Imagen centrada y con tamaño fijo -->
+  <div class='flex justify-center mb-4'>
+    <img src={image} alt='' class='h-32 object-cover rounded-lg' />
+  </div>
+
+  <!-- Título -->
+  <div class='text-center border-b-2 border-b-gray-200 pb-3 mb-4'>
+    <h3 class='text-xl font-semibold text-white'>{nombre}</h3>
+  </div>
+
+  <!-- Párrafo -->
+  <div class='min-h-[180px]'>
+    <p class='text-white font-semibold leading-relaxed text-justify text-md'>
+      {parrafo}
+    </p>
+  </div>
+</div>

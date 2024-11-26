@@ -1,0 +1,151 @@
+---
+import Cards from './Swiper-Card.astro'
+---
+
+<!--Div_Swiper -->
+<div class='items-center py-10 bg-white max-w-screen-xl m-auto w-auto'>
+  <!--Title_Header -->
+  <div
+    class='flex flex-col sm:flex-row m-auto w-[90%] md:w-[78%] justify-between mb-6 z-50'
+    data-aos='fade'
+    data-aos-duration='600'>
+    <div class='flex items-center mb-4 sm:mb-0'>
+      <div class='mr-2 sm:mr-5'>
+        <img src='images/flecha_header.svg' alt='' class='w-[14px] h-9' />
+      </div>
+      <h2 class='text-2xl sm:text-3xl text-gray-900 font-bold'>Nuestros Servicios Realizados</h2>
+    </div>
+    <!--Arrows (Only visible on sm and above)-->
+    <div class='hidden sm:flex'>
+      <div class='swiper-prev mr-4 sm:mr-8 cursor-pointer'>
+        <img src='/images/flechaprevia.svg' alt='' />
+      </div>
+      <div class='swiper-next cursor-pointer'>
+        <img src='/images/flechanext.svg' alt='' />
+      </div>
+    </div>
+  </div>
+  <!--Swiper -->
+  <div
+    class='swiper mySwiper select-pointer p-10 overflow-visible max-w-screen-2xl'
+    data-aos='fade'
+    data-aos-duration='600'>
+    <div class='swiper-wrapper'>
+      <div class='swiper-slide'>
+        <Cards
+          tipo='Servicio'
+          nombre='Mantenimiento de Líneas de Agua Recuperada y Válvulas en Molinos de Bolas y Barras - Toquepala, Tacna'
+          imgSrc='https://i.imgur.com/Zgnkhtl.jpg'
+        />
+      </div>
+      <div class='swiper-slide'>
+        <Cards
+          tipo='Servicio'
+          nombre='Diseño e Instalación de Guardas en Polines de Carga y Retorno en Fajas Transportadoras - Toquepala, Tacna'
+          imgSrc='https://i.imgur.com/83UFhC9.jpg'
+        />
+      </div>
+      <div class='swiper-slide'>
+        <Cards
+          tipo='Servicio'
+          nombre='Reparación de Tolvas de Finos en Secciones 1, 2, 3 y 4 – Toquepala, Tacna'
+          imgSrc='https://i.imgur.com/6WNNWMw.jpg'
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class='items-center mx-auto max-w-screen-xl'>
+    <div class='flex items-center justify-center w-[90%] md:w-[80%] mx-auto'>
+      <a
+        href='/ProyectosRealizados'
+        class='mx-auto w-52 text-center text-white bg-[#13253E] hover:bg-blue-950 rounded-3xl
+        m-4 shadow-xl'>
+        Ver más
+      </a>
+    </div>
+  </div>
+
+  <!-- Arrows (Visible when screen width >= 640px) -->
+  <div class='sm:hidden flex justify-center mt-4'>
+    <div class='swiper-prev mr-4 sm:mr-8 cursor-pointer'>
+      <img src='/images/flechaprevia.svg' alt='' />
+    </div>
+    <div class='swiper-next cursor-pointer'>
+      <img src='/images/flechanext.svg' alt='' />
+    </div>
+  </div>
+
+  <!-- Initialize Swiper -->
+  <script type='module'>
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 10, // Espacio reducido entre slides
+      centeredSlides: true,
+      initialSlide: 1, // Inicia en la segunda imagen
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev'
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1.1,
+          centeredSlides: true,
+          spaceBetween: 10 // Ajusta el espacio aquí también
+        },
+        768: {
+          slidesPerView: 1.2,
+          centeredSlides: true,
+          spaceBetween: 20 // Ajusta el espacio aquí también
+        },
+        1304: {
+          slidesPerView: 1.5, // Menor cantidad de slides visibles
+          centeredSlides: true,
+          spaceBetween: 30 // Ajusta el espacio aquí también
+        }
+      },
+      on: {
+        init: function () {
+          this.slides[this.activeIndex].style.transform = 'scale(1.05)' // Escala ligeramente mayor para la tarjeta central
+        },
+        slideChangeTransitionStart: function () {
+          this.slides.forEach((slide) => {
+            slide.style.transform = 'scale(0.95)' // Escala ligeramente reducida para las tarjetas adyacentes
+          })
+          this.slides[this.activeIndex].style.transform = 'scale(1.05)' // Escala ligeramente mayor para la tarjeta central
+        }
+      }
+    })
+
+    swiper.slides[swiper.activeIndex].style.transform = 'scale(1.05)' // Escala ligeramente mayor para el slide activo
+  </script>
+</div>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    cursor: grab;
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out;
+    @apply px-4 sm:px-px  pb-8 sm:pb-px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 640px) {
+    .swiper {
+      padding: 0 10px; /* Ajuste de margen */
+    }
+  }
+</style>

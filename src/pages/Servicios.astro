@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ParallaxSection from '../components/ParallaxSection.astro'
+import 'aos/dist/aos.css'
+
+const parallaxContent = {
+  image: 'https://i.imgur.com/uPgNihJ.jpg',
+  text: {
+    title: 'Acerca de Nuestros Servicios'
+  },
+  breadcrumb: [
+    { href: '/', label: 'Inicio' },
+    { href: '/Servicios', label: 'Servicios' }
+  ]
+}
+---
+
+<script>
+  import AOS from 'aos'
+  AOS.init()
+
+  // Función de cambio de contenido
+  function changeContent(event: MouseEvent, title: string, imageSrc: string, description: string) {
+    const imgElement = document.getElementById('service-image') as HTMLImageElement
+    const titleElement = document.getElementById('service-title')
+    const descriptionElement = document.getElementById('service-description')
+
+    if (imgElement && titleElement && descriptionElement) {
+      imgElement.src = imageSrc
+      titleElement.textContent = title
+      descriptionElement.innerHTML = description // Cambia textContent por innerHTML
+    }
+
+    const buttons = document.querySelectorAll('button')
+    buttons.forEach((button) => {
+      button.classList.remove('bg-blue-800')
+      button.classList.add('bg-blue-700')
+    })
+
+    if (event.target instanceof HTMLButtonElement) {
+      event.target.classList.remove('bg-blue-700')
+      event.target.classList.add('bg-blue-800')
+    }
+  }
+
+  // Esperar a que el DOM se cargue
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnIngenieria = document.getElementById('btn-ingenieria')
+    const btnMineria = document.getElementById('btn-mineria')
+    const btnConcesiones = document.getElementById('btn-concesiones')
+
+    if (btnIngenieria) {
+      btnIngenieria.addEventListener('click', (event) =>
+        changeContent(
+          event as MouseEvent,
+          'Construcción, Reparación y Mantenimiento',
+          'https://i.imgur.com/3eXOJJG.jpg',
+          'Nos especializamos en la aplicación de procesos de soldadura de alta precisión en una amplia gama de estructuras y equipos industriales. Desde tanques de almacenamiento y tuberías en equipos complejos, hasta calderas, líneas de ácido y plantas de procesamiento.<br/>También ofrecemos servicios en estructuras metálicas, garantizando su integridad y durabilidad a través de técnicas avanzadas de arenado y la aplicación de pintura industrial de alta calidad.'
+        )
+      )
+    }
+
+    if (btnMineria) {
+      btnMineria.addEventListener('click', (event) =>
+        changeContent(
+          event as MouseEvent,
+          'Alquiler de Equipos',
+          'https://i.imgur.com/TdrmfV8.jpg',
+          'Ofrecemos un servicio integral de alquiler de equipos para satisfacer las necesidades de tus proyectos de soldadura y construcción. Disponemos de una amplia gama de equipos, incluyendo camiones grúa, andamios multidireccionales certificados, máquinas de soldar multiprocesos, y otros equipos especializados. <br/><br/>Nuestro objetivo es proporcionar herramientas de <strong>alta calidad</strong> que faciliten la realización de trabajos eficientes y seguros.'
+        )
+      )
+    }
+    if (btnConcesiones) {
+      btnConcesiones.addEventListener('click', (event) =>
+        changeContent(
+          event as MouseEvent,
+          'Soldadura',
+          'https://i.imgur.com/ntBb3fd.jpg',
+          'Nos especializamos en la aplicación de todo tipo de soldaduras, cumpliendo estrictamente con los estándares internacionales ASME, API y AWS.<br/><br/>Nuestro equipo está capacitado para llevar a cabo procesos avanzados de soldadura como SMAW, GTAW y GMAW, <strong>asegurando la máxima calidad</strong> en cada trabajo. Además, ofrecemos la certificación de soldadores, garantizando que todos los procedimientos realizados estén alineados con las normativas exigidas por ASME, API y AWS.'
+        )
+      )
+    }
+  })
+</script>
+<Layout title='Servicios: MB'>
+  <div class='h-[95vh] overflow-hidden'>
+    <ParallaxSection
+      image={parallaxContent.image}
+      text={parallaxContent.text}
+      breadcrumb={parallaxContent.breadcrumb}
+    />
+  </div>
+  <main class='bg-gradient-to-b from-gray-200 to-white'>
+    <div class='max-w-screen-xl items-center mx-auto'>
+      <div class='flex flex-wrap justify-center gap-3 py-6 items-center w-[90%] md:w-[80%] mx-auto'>
+        <button
+          id='btn-ingenieria'
+          class='color text-center text-white px-5 rounded-lg w-72 h-16 transition duration-300'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          data-aos-delay='100'>
+          Construcción, Reparación<br />y Mantenimiento
+        </button>
+        <button
+          id='btn-mineria'
+          class='color text-center text-white px-5 rounded-lg w-72 h-16 hover:bg-blue-950 transition duration-300'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          data-aos-delay='200'>
+          Alquiler de Equipos
+        </button>
+        <button
+          id='btn-concesiones'
+          class='color text-center text-white px-5 rounded-lg w-72 h-16 hover:bg-blue-950 transition duration-300'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          data-aos-delay='300'>
+          Soldadura
+        </button>
+      </div>
+
+      <div class='flex justify-center items-center pb-10 px-3'>
+        <div
+          id='dynamic-content'
+          class='flex flex-col items-start w-[98%] md:w-[78%] bg-[#09111c] rounded-lg'
+          data-aos='fade-up'
+          data-aos-duration='1000'
+          data-aos-delay='300'>
+          <img
+            id='service-image'
+            src='https://i.imgur.com/3eXOJJG.jpg'
+            alt='Servicio'
+            class='w-full object-cover mb-4 rounded-t-lg'
+          />
+          <div class='mx-4'>
+            <h2
+              id='service-title'
+              class='font-extrabold text-3xl md:text-4xl lg:text-5xl p-4 text-white text-left leading-snug md:leading-tight tracking-wide'>
+              Construcción, Reparación y Mantenimiento
+            </h2>
+            <div class='w-full h-2 bg-white'></div>
+            <p
+              id='service-description'
+              class='text-base md:text-lg lg:text-xl p-4 text-white leading-relaxed md:leading-loose'>
+              Nos especializamos en la aplicación de procesos de soldadura de alta precisión en una
+              amplia gama de estructuras y equipos industriales. Desde tanques de almacenamiento y
+              tuberías en equipos complejos, hasta calderas, líneas de ácido y plantas de
+              procesamiento.<br /><br />También ofrecemos servicios en estructuras metálicas,
+              garantizando su integridad y durabilidad a través de técnicas avanzadas de arenado y
+              la aplicación de pintura industrial de <strong>alta calidad.</strong>
+            </p>
+          </div>
+          <div class='flex flex-wrap justify-center items-center m-auto w-full mb-11'>
+            <div class='flex justify-center items-center w-fit'>
+              <a
+                href='/Contactanos'
+                class='bg-[#13253E] text-white p-4 m-10 mb-0 rounded-3xl w-56 hover:bg-blue-950 transition duration-300 text-center'>
+                Contáctanos
+              </a>
+            </div>
+            <div class='flex justify-center items-center w-fit'>
+              <a
+                href='/ProyectosRealizados'
+                class='bg-[#13253E] text-white p-4 m-10 mb-0 rounded-3xl w-64 hover:bg-blue-950 transition duration-300 text-center'>
+                Ver Servicios Realizados
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+<style>
+  .color {
+    --tw-bg-opacity: 1;
+    background-color: rgb(19 37 62 / var(--tw-bg-opacity)) /* #13253e */;
+    @apply hover:bg-blue-950;
+  }
+</style>

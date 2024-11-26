@@ -1,0 +1,75 @@
+<div class='relative w-full h-[90vh] overflow-hidden'>
+  <div class='flex transition-transform duration-500 ease-out w-full h-full' id='slider'>
+    <div
+      class='flex-shrink-0 w-full h-full bg-cover bg-center'
+      style='background-image: url(https://i.imgur.com/vTshusE.jpg);'>
+    </div>
+    <div
+      class='flex-shrink-0 w-full h-full bg-cover bg-center'
+      style='background-image: url(https://i.imgur.com/OzXKSoC.jpg);'>
+    </div>
+    <div
+      class='flex-shrink-0 w-full h-full bg-cover bg-center'
+      style='background-image: url(https://i.imgur.com/vwhkaur.jpg);'>
+    </div>
+  </div>
+
+  <div class='absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-3 z-10'>
+    <a
+      href='#'
+      class='dot w-2.5 h-2.5 rounded-full bg-white opacity-75 hover:opacity-100'
+      data-slide='0'></a>
+    <a
+      href='#'
+      class='dot w-2.5 h-2.5 rounded-full bg-white opacity-75 hover:opacity-100'
+      data-slide='1'></a>
+    <a
+      href='#'
+      class='dot w-2.5 h-2.5 rounded-full bg-white opacity-75 hover:opacity-100'
+      data-slide='2'></a>
+  </div>
+</div>
+
+<style></style>
+
+<script>
+  const slider = document.getElementById('slider')
+  const dots = document.querySelectorAll('.dot')
+  let currentIndex = 0
+  let autoSlideInterval
+
+  function goToSlide(index: any) {
+    slider.style.transform = `translateX(-${index * 100}%)`
+    currentIndex = index
+    updateDots()
+    resetAutoSlide() // Reinicia el intervalo al cambiar de diapositiva
+  }
+
+  function updateDots() {
+    dots.forEach((dot) => dot.classList.remove('active'))
+    dots[currentIndex].classList.add('active')
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % dots.length
+      goToSlide(nextIndex)
+    }, 3000)
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval) // Detiene el intervalo actual
+    startAutoSlide() // Reinicia el intervalo
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault() // Evita el comportamiento por defecto del enlace
+      const slideIndex = parseInt(dot.getAttribute('data-slide'), 10)
+      goToSlide(slideIndex)
+    })
+  })
+
+  // Inicia el intervalo de cambio automático al cargar la página
+  startAutoSlide()
+</script>

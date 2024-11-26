@@ -1,0 +1,237 @@
+<div class='bg-gradient-to-b from-gray-300 to-gray-200'>
+  <!--Div_Swiper -->
+  <div class='items-center py-10 max-w-screen-xl m-auto w-auto'>
+    <div class='flex w-[78%] mx-auto mb-8'>
+      <div class='mr-5' data-aos='fade-right' data-aos-duration='1000'>
+        <img src='/images/flechanext.svg' class='w-[14px] h-9' />
+      </div>
+      <div data-aos='fade-right' data-aos-duration='1000'>
+        <h3 class='text-2xl sm:text-3xl font-bold text-gray-900 border-b-2 border-[#111827]'>
+          Nuestras Valores
+        </h3>
+      </div>
+    </div>
+    <div class='w-[80%] mx-auto'>
+      <div class='swiper mySwiper'>
+        <div class='swiper-wrapper'>
+          <div class='swiper-slide'>
+            <div class='card-container'>
+              <div class='card'>
+                <div class='card-front'>
+                  <h3>CONFIANZA</h3>
+                  <img src='/images/Confianza.webp' alt='' class='w-14 mx-auto' />
+                  <span>↻</span>
+                </div>
+                <div class='card-back'>
+                  <img src='/images/Confianza.webp' alt='' class='w-14 mx-auto' />
+                  <p>
+                    Construimos lazos de confianza en la sociedad, como en los consumidores,
+                    contribuyendo al desarrollo social.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='swiper-slide'>
+            <div class='card-container'>
+              <div class='card'>
+                <div class='card-front'>
+                  <h3>RESPONSABILIDAD</h3>
+                  <img src='/images/Responsabilidad.webp' alt='' class='w-14 mx-auto' />
+                  <span>↻</span>
+                </div>
+                <div class='card-back'>
+                  <img src='/images/Responsabilidad.webp' alt='' class='w-14 mx-auto' />
+                  <p>Contamos con el compromiso para realizar eficazmente un trabajo de calidad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='swiper-slide'>
+            <div class='card-container'>
+              <div class='card'>
+                <div class='card-front'>
+                  <h3>TRABAJO EN EQUIPO</h3>
+                  <img src='/images/TrabajoEnEquipo.webp' alt='' class='w-14 mx-auto' />
+                  <span>↻</span>
+                </div>
+                <div class='card-back'>
+                  <img src='/images/TrabajoEnEquipo.webp' alt='' class='w-14 mx-auto' />
+                  <p>
+                    La organización, comunicación y planificación entre colaboradores, es el
+                    principal pilar de nuestra empresa.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='swiper-slide'>
+            <div class='card-container'>
+              <div class='card'>
+                <div class='card-front'>
+                  <h3>RESPETO</h3>
+                  <img src='/images/Respeto.webp' alt='' class='w-14 mx-auto' />
+                  <span>↻</span>
+                </div>
+                <div class='card-back'>
+                  <img src='/images/Respeto.webp' alt='' class='w-14 mx-auto' />
+                  <p>
+                    Una base importante que aplicamos, y nos aseguramos que todo nuestro equipo lo
+                    demuestre.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='swiper-slide'>
+            <div class='card-container'>
+              <div class='card'>
+                <div class='card-front'>
+                  <h3>PUNTUALIDAD</h3>
+                  <img src='/images/Puntualidad.webp' alt='' class='w-14 mx-auto' />
+                  <span>↻</span>
+                </div>
+                <div class='card-back'>
+                  <img src='/images/Puntualidad.webp' alt='' class='w-14 mx-auto' />
+                  <p>Cumplimos los compromisos en el tiempo pactado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='swiper-slide'>
+            <div class='card-container'>
+              <div class='card'>
+                <div class='card-front'>
+                  <h3>SEGURIDAD</h3>
+                  <img src='/images/Seguridad.webp' alt='' class='w-12 mx-auto' />
+
+                  <span>↻</span>
+                </div>
+                <div class='card-back'>
+                  <img src='/images/Seguridad.webp' alt='' class='w-12 mx-auto' />
+
+                  <p>
+                    Contamos con políticas, plan de gestión y toda la logística para dar importancia
+                    al trabajo seguro.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='swiper-pagination static'></div>
+  </div>
+
+  <script type='module'>
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      centeredSlides: false,
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: true
+      },
+      slidesPerGroup: 1,
+      grabCursor: true,
+      keyboard: {
+        enabled: true
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2, // Muestra 2 slides a la vez para resoluciones md (768px) y superiores
+          slidesPerGroup: 2, // Agrupa los slides en 2 para el desplazamiento
+          spaceBetween: 20 // Espacio entre slides
+        },
+        1024: {
+          slidesPerView: 3, // Muestra 3 slides a la vez para resoluciones lg (1024px) y superiores
+          slidesPerGroup: 3, // Agrupa los slides en 3 para el desplazamiento
+          spaceBetween: 30 // Espacio entre slides
+        }
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+    })
+  </script>
+
+  <style>
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    /* Estilo del contenedor de la tarjeta */
+    .card-container {
+      perspective: 1000px;
+      width: 350px;
+      height: 250px;
+    }
+
+    /* Estilo de la tarjeta que se va a rotar */
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      color: black;
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+    }
+
+    .card-front {
+      background-color: white;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      @apply bg-gray-100 text-center items-center justify-center m-auto py-14;
+    }
+    .card-front h3 {
+      @apply text-2xl;
+    }
+
+    .card-front span {
+      @apply text-3xl;
+    }
+
+    .card-front img {
+      @apply py-2;
+    }
+
+    .card-back {
+      background-color: #13253e;
+      transform: rotateY(180deg);
+      color: white;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      @apply text-center items-center justify-center m-auto px-7 py-6;
+    }
+    .card-back p {
+      @apply text-sm pt-2;
+    }
+
+    .card-container:hover .card {
+      transform: rotateY(-180deg);
+    }
+
+    @media only screen and (min-width: 769px) {
+      .swiper-slide {
+        padding: 20px;
+      }
+    }
+  </style>
+</div>

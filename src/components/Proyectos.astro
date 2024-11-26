@@ -1,0 +1,85 @@
+---
+import ProyectosCards from './Proyectos-Cards.astro'
+
+const projects = [
+  {
+    imageUrl: 'https://i.imgur.com/Zgnkhtl.jpg',
+    title:
+      'Mantenimiento de Líneas de Agua Recuperada y Válvulas en Molinos de Bolas y Barras - Toquepala, Tacna'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/GlWFxuL.jpg',
+    title: 'Modificación y Reparación de Chutes y Fajinas - Toquepala, Tacna'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/83UFhC9.jpg',
+    title:
+      'Diseño e Instalación de Guardas en Polines de Carga y Retorno en Fajas Transportadoras - Toquepala, Tacna'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/6WNNWMw.jpg',
+    title: 'Reparación de Tolvas de Finos en Secciones 1, 2, 3 y 4 – Toquepala, Tacna'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/TiEyNhh.jpg',
+    title: 'Mantenimiento General del Sistema de Manejo de Gases en Fundición – Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/JnopGlk.jpg',
+    title:
+      'Reparación de Plancha Base y Aplicación de Sello Perimétrico en Tanque 420-TNK-002 – Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/dffpDwJ.jpg',
+    title: 'Reparación Parcial Plancha Base 420-TNK-001 - Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/d2490ri.jpg',
+    title: 'Desmantelamiento de Ex Planta de Ánodos - Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/m0k4PIe.jpg',
+    title: 'Mantenimiento en el Caldero de Recuperación de Calor - Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/nMH0xeO.jpg',
+    title: 'Reparación y Cambio de Linners en Tolvas de Alimentación - Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/Knjn5jl.jpg',
+    title: 'Reparación de Juntas de Expansión del Sistema de Reparación de Ductos de Gases'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/gk8sEjW.jpg',
+    title: 'Mantenimiento General de las Ruedas de Moldeo - Ilo, Southern Peru'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/KtXsnRW.jpg',
+    title: 'Instalación del Silenciador - Ilo, ENERSUR'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/p4SgXzl.jpg',
+    title: 'Soldeo de Camión Kress - Ilo, Fundición '
+  },
+  {
+    imageUrl: 'https://i.imgur.com/uqCQTv9.jpg',
+    title: 'Reparación de Caldero CT - Ilo 21'
+  },
+  {
+    imageUrl: 'https://i.imgur.com/Fsph23A.jpg',
+    title: 'Soldeo de Calentador de Tanque de Petróleo'
+  }
+]
+---
+
+<div
+  class='mx-auto px-4 py-8 gap-y-14 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 items-center justify-center'>
+  <!-- Cards -->
+  {
+    projects.map((project) => (
+      <div class='items-center justify-center m-auto  h-full hover:shadow-2xl cursor-grab'>
+        <ProyectosCards imageUrl={project.imageUrl} title={project.title} />
+      </div>
+    ))
+  }
+</div>
